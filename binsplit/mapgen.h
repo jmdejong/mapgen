@@ -1,0 +1,43 @@
+#ifndef MAPGEN
+#define MAPGEN
+
+typedef unsigned char  u8;
+
+typedef struct {
+  int tileX;
+  int tileY;
+} TilePosition;
+
+#define MAP_WIDTH 64
+#define MAP_HEIGHT 64
+#define MAP_SIZE (MAP_WIDTH * MAP_HEIGHT)
+
+typedef enum {
+    Empty,
+    Wall,
+    Bed,
+    BedLeft,
+    Toilet,
+    Toileft,
+    Duckie,
+    Alcohol,
+    Diaper,
+    Saxophone,
+    Flowers
+} GenMapTile;
+
+typedef struct {
+    u8 ground[MAP_SIZE];
+    TilePosition bedPos;
+    TilePosition toiletPos;
+    int xmin;
+    int ymin;
+    int xmax;
+    int ymax;
+} GenMap;
+
+
+void generateGenMap(GenMap *map, u8 currentLevel);
+
+#endif
+
